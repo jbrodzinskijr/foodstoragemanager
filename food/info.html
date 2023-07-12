@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Food Storage</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/tomatoicon.png">
+</head>
+<body>
+    <div class="general-container" id="header"></div>
+        
+    <div class="general-card" id="info">
+        
+        <h2>
+            What Is Food Storage Manager?
+        </h2>
+        <p>
+            The Food Storage Manager is a tool for maintaining and monitoring inventory.  
+            It was designed primarily with home food storage in mind, 
+            but the ability to create categories and subcategories allows you the flexibility to manage much more.
+        </p>
+        <p>
+            It is programmed in JavaScript, HTML, CSS, PHP, and MySQL, 
+            and so it is designed to be served by an appropriate home server and used in a browser.  
+            See the GitHub repository for more information on setup.
+        </p>
+
+        <h2>
+            How it Works
+        </h2>
+        <ol>
+            <li>
+                Start by navigating to Add Values from the + icon on the navigation bar.  
+            </li>
+            <li>
+                Create your first Category:
+                <ol>
+                    <li>
+                        First, create the units that these items will be measured in.  
+                        For example, if you&#39ll be tracking inventory of Flour, you may want to use &quotlb&quot is the unit of measure.  
+                        Enter this (lb) in the &quotNew Unit&quot field, and submit by clicking &quotAdd&quot.  
+                        You can see a current list of units by clicking on the &quotCurrent Units&quot dropdown above it.
+                    </li>
+                    <li>
+                        Now, type a 3-letter category ID, and a long-form description below it.  
+                        For example, for flour you might want your ID and description to be &quotFLO&quot and &quotFlour&quot, respectively.  
+                    </li>
+                    <li>
+                        Select the unit of measure for this category.  
+                        This will be the unit associated with this category for any inventory items added later.
+                    </li>
+                    <li>
+                        Submit the new category by clicking &quotAdd&quot.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Add an item to the inventory by navigating to Add Item, from the <img src="images/pluswhite.png" height="20" width="20"> icon.
+                <ol>
+                    <li>
+                        All fields except for the Price must be filled in.
+                    </li>
+                    <li>
+                        The Date Received is the date that you want to indicate it was brought into the inventory.  
+                        It can be &#8208 but does not have to be &#8208 the current date.
+                    </li>
+                    <li>
+                        Choose a Category from your categories list.  
+                    </li>
+                    <li>
+                        Input a Subcategory that describes the item in a bit more detail (eg. &quotWhole Wheat Flour&quot).
+                    </li>
+                    <li>
+                        Input the Source from which the item was obtained (eg. &quotEarth Fare&quot or &quotHome Canning&quot).
+                    </li>
+                    <li>
+                        Input the amount, in the category&#39s units, for each item obtained.  
+                        For example, for 28 oz. cans of tomatoes, this value will be 28.  
+                        The quantity of cans will be inputted next.  The units will automatically populate.
+                    </li>
+                    <li>
+                        Now input the quantity of items being inputted.  If there were 12 cans of 28 oz., 
+                        this value will be 12.  The total number of ounces will be calculated by taking the product 
+                        of the Amount and Quantity fields before insertion into the database.  
+                        Therefore, only items of equal Amounts should be inserted together.  
+                    </li>
+                    <li>
+                        Input the expiration date of the item(s) in MM/YYYY format.
+                    </li>
+                    <li>
+                        Optionally, input the Price paid for all combined items (eg. all 12 cans).
+                    </li>
+                    <li>
+                        Submit by clicking &quotAdd&quot.
+                    </li>
+                    <li>
+                        After successful submission, you will be shown the unique code which is generated 
+                        by the database.  This is how this item will be tracked and referenced, 
+                        and so it&#39s a good idea to label the items with this code.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Search for items in the database using the Search Item page from the <img src="images/searchwhite.png" height="20" width="20"> icon.  
+                You can search by Code or Description.  Autocomplete will begin returning results 
+                once at least 3 characters have been typed.  Select the desired record from the options 
+                and click &quotSelect&quot to view.
+            </li>
+            <li>
+                You can edit and update an item from the View Item page.  
+                This page can be reached by clicking on a record from the Search Item page 
+                or any other page where a blue Code is found.
+                <ol>
+                    <li>
+                        Edit a field which already has a value by clicking on that value then typing the new value. 
+                        Some fields cannot be changed.
+                    </li>
+                    <li>
+                        Input a new value for a field that does not yet have a value by clicking 
+                        where that value should be on the table then typing the new value.
+                    </li>
+                    <li>
+                        After typing all desired inputs, click Update Item to save.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                The <img src="images/viewwhite.png" height="20" width="20"> menu contains several pages for viewing the items and associated data.
+                <ol>
+                    <li>
+                        The Current page displays all of the items which are currently in use, 
+                        meaning that they have a Start Date but no End Date.
+                    </li>
+                    <li>
+                        The Next page displays the next item for each Category and Subcategory, 
+                        based on the Date Received (the item with the oldest Date Received will be displayed).
+                    </li>
+                    <li>
+                        The Metrics page displays various metrics for the Categories and their Subcategories.
+                        <ol>
+                            <li>
+                                Inventory is calculated by adding all of the items of that category 
+                                or subcategory that do not have End Dates.
+                            </li>
+                            <li>
+                                Average Rate is calculated by summing the total units consumed (items with End Dates) and 
+                                dividing by the sum of the time it took to consume these units.  
+                                It is converted to units/week for this metric.
+                            </li>
+                            <li>
+                                The Supply is calculated by dividing the Inventory by the Average Rate, as calculated above.
+                            </li>
+                            <li>
+                                The Surplus/Deficit is calculated by subtracting the current Inventory by 26 weeks 
+                                (6 months) of supply.  In other words, this value shows how much surplus or deficit 
+                                you have of this category where your target is 6 months of supply at your 
+                                Average Rate of consumption.
+                            </li>
+                            <li>
+                                The Average Price Per Unit and Minimum Price Per Unit are calculated by Subcategory only.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        The Inventory page allows you to view all items in the database.  
+                        You can filter by status (Stock: no Start Date set, In Use: Start Date set but no End Date set, 
+                        or Done: End Date set) or by Category.
+                    </li>
+                    <li>
+                        The Activity page allows you to see all of your activity, 
+                        including the adding, deleting, and updating items.
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+
+    <script type="text/javascript" src="info.js"></script>
+ 
+</body>
+</html>

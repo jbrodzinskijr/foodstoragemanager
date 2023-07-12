@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Food Storage</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/tomatoicon.png">
+</head>
+<body>
+    <div class="general-container" id="header"></div>
+        
+    <div class="general-card">
+                        
+                <label>Item Search</label>
+                <!-- I'd like to implement a "clear" icon for quickly deleting the search input -->
+                <input type="search" id="search" name="search" class="general-input autocomplete" placeholder="Search by Code or Description">
+                
+                <div class="align-center validationMessage" id="validationMsg">
+                    <p>Please search and select a record.</p>
+                </div>
+                
+            <button type="submit" name="select-item" class="general-button blue" onclick="submitSearch()">Select</button>
+        
+    </div>
+
+    <script type="text/javascript" src="searchitem.js"></script>
+
+</body>
+</html>

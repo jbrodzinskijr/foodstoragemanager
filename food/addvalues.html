@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Food Storage</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/tomatoicon.png">
+</head>
+
+<body>
+    
+    <div class="general-container" id="header"></div>
+        
+        <div class="align-center validationMessage" id="validationMsg">
+            <p>Please fill in all fields.</p>
+        </div>
+
+        <div class="general-card">
+            <div class="dropdown">
+                <button onclick="catDropdown()" class="dropbtn">Current Categories</button>
+                <div id="categoriesDropdown" class="dropdown-content"></div>
+            </div>
+            <br>
+            <form action="addcatorunit.php" method="post" name="catForm" onsubmit="return validateCatForm()">
+                <br>
+                <input type="text" name="category" pattern="[A-Z]{3}" class="general-input" placeholder="New Category ID">
+                <input type="text" name="full_category" class="general-input" placeholder="New Category Description">
+                <select id="cat_units_select" name="cat_units" class="general-input" label="Units"></select>
+                <button type="submit" name="add-category" class="general-button blue">Add</button>
+            </form>
+        </div>
+        <div class="general-card">
+            <div class="dropdown">
+                <button onclick="unitDropdown()" class="dropbtn">Current Units</button>
+                <div id="unitsDropdown" class="dropdown-content"></div>
+            </div>
+            <form action="addcatorunit.php" method="post" class="w3-container" name="unitForm" onsubmit="return validateUnitForm()">
+                <br>
+                <input type="text" name="unit" class="general-input" placeholder="New Unit">
+                <button type="submit" name="add-unit" class="general-button blue">Add</button>
+            </form>
+        </div>
+        
+        <script type="text/javascript" src="addvalues.js"></script>
+
+
+
+</body>
+</html>

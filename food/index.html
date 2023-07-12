@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Food Storage</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="images/tomatoicon.png">
+        
+</head>
+<body>
+        <div class="general-container" id="header"></div>
+
+        <div class="w3-container alert-panel" id="alert_div">
+                <table id="alert_table">
+                        <tr>
+                                <td>
+                                        <table id="exp_table" onclick=toggleExpTable()><tr><td id="exp_icon"><img src="images/newexc.png" height="20" width="20"></td><td id="exp_data"></td></tr></table>
+                                </td>
+                        </tr>
+                        <tr>
+                                <td>
+                                        <table id="soon_table" onclick=toggleSoonTable()><tr><td id="soon_icon"><img src="images/newcaution.png" height="20" width="20"></td><td id="soon_data"></td></tr></table>
+                                </td>
+                        </tr>
+                </table>
+        </div>
+
+        <div class="general-card"> 
+                <p class="general-card-header">Recent Activity</p>
+                <table id="activity" class="general-table-all"></table>
+        </div>
+
+        <script type="text/javascript" src="index.js"></script>        
+</body>
+</html>
