@@ -289,7 +289,7 @@ function deleteItem() {
         body: JSON.stringify(data)
       });
       
-      window.location = 'foodstorage.html';
+      window.location = 'index.html';
 
     } catch(error) {
       console.log(error)
